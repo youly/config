@@ -1,0 +1,9 @@
+[alias]
+st = status
+ci = commit
+di = diff
+dic = diff --cached
+dio = diff origin master
+co = checkout
+br = branch
+logp = log -p
