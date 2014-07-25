@@ -6,3 +6,5 @@ ln -s $cwd/.bash_profile $HOME/.bash_profile
 ln -s $cwd/.alias $HOME/.alias
 ln -s $cwd/.screenrc $HOME/.screenrc
 ln -s $cwd/.vimrc $HOME/.vimrc
+
+mkdir $HOME/bin

@@ -4,3 +4,5 @@ PS1="[\u \e[0;32m`echo -e '\xE2\x98\xBA'`\\e[m \W\e[0;32m\$(parse_git_branch)\e[
 parse_git_branch() {
 	git branch 2>/dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
+
+export PATH="$PATH:$HOME/bin"
