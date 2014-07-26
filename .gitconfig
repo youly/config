@@ -10,3 +10,5 @@ logp = log -p
 [user]
 name = liuweiwei
 email = youly001@gmail.com
+[push]
+	default = matching
