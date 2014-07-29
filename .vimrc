@@ -142,13 +142,13 @@ set imsearch=0
 
 "缩进相关的设置
 set ts=4			"tabstop    制表符显示的位宽
-set sw=4			"shiftwidth 自动缩进时，缩进尺寸为4个空格
+set sw=4			"shift/dependencywidth 自动缩进时，缩进尺寸为4个空格
 set et				"编辑时将所有tab替换为空格
 set smarttab		"删除空格时，不用按4次
 set softtabstop=4	" 设置按BackSpace的时候可以一次删除掉4个空格
 
-"用制表符表示缩进
-set noexpandtab
+"用空格表示缩进，而不是制表符
+set expandtab
 
 "显示隐藏字符
 "set list
