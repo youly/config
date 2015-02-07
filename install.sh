@@ -8,3 +8,8 @@ ln -s $cwd/.screenrc $HOME/.screenrc
 ln -s $cwd/.vimrc $HOME/.vimrc
 
 mkdir $HOME/bin
+mkdir $HOME/packages
+cd $HOME/packages
+git clone https://github.com/chrisallenlane/cheat.git
+cd cheat
+python setup.py install
