@@ -11,4 +11,6 @@ logp = log -p
 name = liuweiwei
 email = youly001@gmail.com
 [push]
-	default = matching
+    default = matching
+[color]
+    ui = auto
