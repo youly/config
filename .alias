@@ -1,1 +1,2 @@
 alias ll="ls -alG"
+alias mygrep="grep --color=auto -rn"
