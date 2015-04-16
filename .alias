@@ -1,2 +1,3 @@
 alias ll="ls -alG"
 alias mygrep="grep --color=auto -rn"
+alias svn="~/bin/svn-color.py"

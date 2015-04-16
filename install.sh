@@ -8,6 +8,8 @@ ln -s $cwd/.screenrc $HOME/.screenrc
 ln -s $cwd/.vimrc $HOME/.vimrc
 
 mkdir $HOME/bin
+cp $cwd/bin/svn-color.py $HOME/bin
+
 mkdir $HOME/packages
 cd $HOME/packages
 git clone https://github.com/chrisallenlane/cheat.git
