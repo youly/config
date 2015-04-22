@@ -10,4 +10,4 @@ parse_git_branch() {
 
 export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.7.0_65.jdk/Contents/Home/"
 
-export PATH="$JAVA_HOME/bin:$PATH:$HOME/bin"
+export PATH="$JAVA_HOME/bin:$HOME/bin:$PATH"

@@ -206,3 +206,6 @@ if getline('.')[col('.') - 1] == a:char
 	endif
 endf
 "}}}
+
+" 剪切板复制
+vmap "+y :w !pbcopy<CR><CR>
