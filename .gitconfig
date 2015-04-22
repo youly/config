@@ -14,3 +14,5 @@ email = youly001@gmail.com
     default = matching
 [color]
     ui = auto
+[credential]
+	helper = store
