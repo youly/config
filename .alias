@@ -1,3 +1,8 @@
 alias ll="ls -alG"
-alias mygrep="grep --color=auto -rn"
+alias mygrep="grep --color=always -rn"
 alias svn="~/bin/svn-color.py"
+alias fuck='$(thefuck $(fc -ln -1))'
+
+#hadoop
+alias hstart="/usr/local/Cellar/hadoop/2.6.0/sbin/start-dfs.sh;/usr/local/Cellar/hadoop/2.6.0/sbin/start-yarn.sh"
+alias hstop="/usr/local/Cellar/hadoop/2.6.0/sbin/stop-yarn.sh;/usr/local/Cellar/hadoop/2.6.0/sbin/stop-dfs.sh"

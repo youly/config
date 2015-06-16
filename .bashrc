@@ -8,6 +8,10 @@ parse_git_branch() {
 }
 
 
-export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.7.0_65.jdk/Contents/Home/"
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.7.0_75.jdk/Contents/Home/"
+
+export HIVE_HOME=/usr/local/Cellar/hive/1.0.0/libexec
 
 export PATH="$JAVA_HOME/bin:$HOME/bin:$PATH"
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting

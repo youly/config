@@ -1,0 +1,12 @@
+#!/usr/local/bin/php
+<?php
+if ($argc < 2) {
+    die("usage: ts timestamp/datetime\n");
+}
+date_default_timezone_set('Asia/Shanghai');
+$t = $argv[1];
+if (is_numeric($t)) {
+    echo date('Y-m-d H:i:s', $t), "\n";
+} else {
+    echo strtotime($t), "\n";
+}
