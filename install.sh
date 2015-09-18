@@ -25,7 +25,10 @@ if [ ! -d $HOME/bin ]; then
     /bin/mkdir $HOME/bin
 fi
 if [ ! -e $HOME/bin/svn-color.py ]; then
-    /bin/ln -s $cwd/svn-color.py $HOME/bin
+    /bin/ln -s $cwd/bin/svn-color.py $HOME/bin
+fi
+if [ ! -e $HOME/bin/ts ]; then
+    /bin/ln -s $cwd/bin/ts $HOME/bin
 fi
 
 if [ ! -d $HOME/packages ]; then
@@ -36,6 +39,4 @@ if [ ! -d cheat ]; then
     git clone https://github.com/chrisallenlane/cheat.git
     cd cheat
     python setup.py install
-else
-    git pull
 fi

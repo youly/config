@@ -8,9 +8,11 @@ co = checkout
 br = branch
 logp = log -p
 [user]
-name = liuweiwei
-email = youly001@gmail.com
+	name = weiwei.liu
+	email = weiwei.liu@husor.com.cn
 [push]
     default = matching
 [color]
     ui = auto
+[credential]
+	helper = store
