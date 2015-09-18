@@ -1,0 +1,112 @@
+#!/bin/sh
+
+function usage() {
+    echo "$0 stash --暂存修改"
+    echo "$0 pop --应用修改"
+    echo "$0 list --列举修改"
+    exit
+}
+
+[ $# -lt 1 ] && usage
+
+SVN_BIN=`which svn`
+STASH_DIR=$HOME/.svn_stash
+
+function stash() {
+    check_data_dir
+    is_svn_dir
+    branch=`$SVN_BIN info | grep branch`
+    branch=${branch##*/}
+    time=`date +%y%m%d%H%M%S`
+    patch_file=$branch.$time.patch
+    $SVN_BIN di > $STASH_DIR/$patch_file
+    if [ $? -ne 0 ]; then
+        echo $?
+        echo "生成diff文件失败"
+        exit
+    fi
+    $SVN_BIN revert -R .
+    if [ $? -ne 0 ]; then
+        echo "暂存失败"
+        rm -f $patch_file
+        exit
+    else
+        echo "暂存成功："$patch_file
+    fi
+}
+
+function pop() {
+    check_data_dir
+    is_svn_dir
+    if [ $# -gt 0 ]; then
+        patch=$1
+    else
+        patch=`ls -lt $STASH_DIR | awk '{ if (NF ==9) print $9 }' | head -n1`
+    fi
+    if [ ${#patch} -lt 1 ];then
+        echo "patch 文件不存在"
+        exit
+    fi
+    if [ ! -f $STASH_DIR/$patch ];then
+        echo "patch 文件不存在"
+        exit
+    fi
+
+    /usr/bin/patch  -p0 -i $STASH_DIR/$patch
+    if [ $? -ne 0 ]; then
+        echo "应用patch失败"
+        exit
+    fi
+    rm -f $STASH_DIR/$patch
+    echo "patch 应用成功"
+}
+
+function drop() {
+    check_data_dir
+    if [ $# -gt 0 ]; then
+        patch=$1
+    else
+        echo "文件不存在"
+        exit
+    fi
+    rm $STASH_DIR/$patch
+}
+
+function list() {
+    check_data_dir
+    ls -lt $STASH_DIR | awk '{ if (NF ==9) print $6,$7,$8,$9 }' 
+}
+
+function check_data_dir() {
+    if [ ! -d ~/.svn_stash ]; then
+        mkdir $STASH_DIR
+    fi
+}
+
+function is_svn_dir() {
+    $SVN_BIN info > /dev/null 2>&1
+    if [ $? -ne 0 ]; then
+        echo "当前目录不是一个svn目录"
+        exit
+    fi
+}
+
+CMD=$1
+shift
+case $CMD in
+    stash)
+        stash $*
+        ;;
+    pop)
+        pop $*
+        ;;
+    list)
+        list
+        ;;
+    drop)
+        drop $*
+        ;;
+    *)
+        usage
+        ;;
+esac
